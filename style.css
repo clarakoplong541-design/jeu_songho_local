@@ -1,0 +1,177 @@
+/* ==========================================
+   STYLE DU JEU DE SONGHO - LOOK TRADITIONNEL EN BOIS
+   ========================================== */
+
+/* Style global avec photo de fond */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('fond.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Conteneur principal */
+.game-container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+h1 {
+    color: #4a2c11;
+    margin-bottom: 5px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+#info-turn {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #7f4f24;
+    margin-bottom: 20px;
+}
+
+/* Zone des Scores */
+.scores {
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 25px;
+}
+
+.scores div {
+    background: #5c3d2e;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.4);
+}
+
+/* ==========================================
+   LE TABLIER EN BOIS (LE PLATEAU)
+   ========================================== */
+.board {
+    background: #3d2314; /* Couleur bois sombre */
+    background-image: linear-gradient(135deg, #4a2c11 25%, #3d2314 100%);
+    padding: 20px 30px;
+    border-radius: 40px; /* Bords très arrondis comme un vrai Songo sculpté */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 
+                inset 0 4px 10px rgba(255,255,255,0.15),
+                inset 0 -10px 20px rgba(0,0,0,0.6);
+    border: 6px solid #2b180c;
+    display: inline-block;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+/* ==========================================
+   LES TROUS CREUSÉS DANS LE BOIS (PITS)
+   ========================================== */
+.pit {
+    width: 70px;
+    height: 70px;
+    margin: 0 8px;
+    border-radius: 50%;
+    
+    /* Effet d'ombre interne pour faire croire que le trou est creusé en profondeur */
+    background: #231207;
+    box-shadow: inset 0 8px 12px rgba(0, 0, 0, 0.8), 
+                0 2px 3px rgba(255, 255, 255, 0.1);
+    
+    /* Style du texte (le nombre de graines) */
+    color: #fbd29d; /* Couleur rappelant des petites graines claires */
+    font-size: 22px;
+    font-weight: bold;
+    font-family: 'Georgia', serif;
+    
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    
+    /* Centre le nombre au milieu du trou */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Effet au survol d'un trou */
+.pit:hover {
+    transform: scale(1.05);
+    background: #2f190a;
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.7), 
+                0 0 10px rgba(243, 156, 18, 0.4);
+}
+
+/* Optionnel : si le trou est vide, on l'assombrit encore plus */
+.pit:empty, .pit[textContent="0"], .pit:contains("0") {
+    color: #555;
+}
+
+/* ==========================================
+   ÉCRAN DE CÉLÉBRATION (PLUIE DE FLEURS)
+   ========================================== */
+#celebration-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#celebration-overlay.hidden {
+    display: none;
+}
+
+#winner-message {
+    font-size: 36px;
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 0 4px 15px rgba(241, 196, 15, 0.6);
+    z-index: 10;
+}
+
+#flowers-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.flower-particle {
+    position: absolute;
+    top: -30px;
+    user-select: none;
+    z-index: 5;
+    animation: fallDown linear forwards;
+}
+
+@keyframes fallDown {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(105vh) rotate(360deg);
+        opacity: 0.3;
+    }
+}

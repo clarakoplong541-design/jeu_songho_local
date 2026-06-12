@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>songo - local</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="celebration-overlay" class="hidden">
+        <div class="flowers-container">🌸 🌻 🌹 Félicitations ! 🌷 🌼 🌺</div>
+        <div id="winner-message"></div>
+    </div>
+
+    <div class="game-container">
+        <h1>Jeu de Songo - Mode Local</h1>
+        <div id="info-turn">Tour : Joueur Sud</div>
+
+        <div class="scores">
+            <div>Score Nord : <span id="score-north">0</span></div>
+            <div>Score Sud : <span id="score-south">0</span></div>
+        </div>
+      <div class="controls" style="margin-top: 15px; margin-bottom: 15px;">
+    <button onclick="recommencerLocal()" style="padding: 10px 15px; background-color: #2ecc71; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; margin-right: 10px;">🔄 Recommencer</button>
+    <button onclick="quiterJeu()" style="padding: 10px 15px; background-color: #e74c3c; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">🚪 Quitter le jeu</button>
+</div>
+        <div class="board">
+            <div class="row north-row">
+                <button class="pit" onclick="handlePitClick('north', 0)">5</button>
+                <button class="pit" onclick="handlePitClick('north', 1)">5</button>
+                <button class="pit" onclick="handlePitClick('north', 2)">5</button>
+                <button class="pit" onclick="handlePitClick('north', 3)">5</button>
+                <button class="pit" onclick="handlePitClick('north', 4)">5</button>
+                <button class="pit" onclick="handlePitClick('north', 5)">5</button>
+                <button class="pit" onclick="handlePitClick('north', 6)">5</button>
+            </div>
+
+            <div class="row south-row">
+                <button class="pit" onclick="handlePitClick('south', 0)">5</button>
+                <button class="pit" onclick="handlePitClick('south', 1)">5</button>
+                <button class="pit" onclick="handlePitClick('south', 2)">5</button>
+                <button class="pit" onclick="handlePitClick('south', 3)">5</button>
+                <button class="pit" onclick="handlePitClick('south', 4)">5</button>
+                <button class="pit" onclick="handlePitClick('south', 5)">5</button>
+                <button class="pit" onclick="handlePitClick('south', 6)">5</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="engine.js"></script>
+    <script src="local_ui.js"></script>
+    <script src="local_app.js"></script>
+</body>
+</html>
